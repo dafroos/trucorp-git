@@ -20,19 +20,21 @@
     <title>Trucorp</title>
 </head>
 <body>
-
-    <p>Users:</p>
+    <table>
+        <tr>
+            <td>Users:</td>
+        </tr>
     <?php
         $count = 0;
-        $query = "SELECT user from user";
+        $query = "SELECT user FROM user";
         $result = $connection->query($query);
 
         while($users = $result->fetch_assoc()) :
             $count = $count + 1;
     ?>
-    <p>
-        <?= $users["user"]?>
-    </p>
+    <tr>
+        <td><?= $users["user"]?></td>
+    </tr>
     <?php 
         endwhile;
         printf("Total Users: %d", $count);
