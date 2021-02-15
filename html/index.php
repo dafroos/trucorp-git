@@ -1,7 +1,7 @@
 <?php
-    $host = "localhost";
+    $host = "172.20.0.2";
     $username = "root";
-    $password = "";
+    $password = "asdfasdf";
     $db_name = "mysql";
 
     $connection = new mysqli($host, $username, $password, $db_name);
@@ -21,21 +21,18 @@
 </head>
 <body>
 
-    <table>
-        <tr>
-            <td>Users:</td>
-        </tr>
+    <p>Users:</p>
     <?php
         $count = 0;
-        $query = "SELECT User from user";
+        $query = "SELECT user from user";
         $result = $connection->query($query);
 
         while($users = $result->fetch_assoc()) :
             $count = $count + 1;
     ?>
-    <tr>
-        <td><?= $users["User"]?></td>
-    </tr>
+    <p>
+        <?= $users["user"]?>
+    </p>
     <?php 
         endwhile;
         printf("Total Users: %d", $count);
